@@ -3,6 +3,8 @@ using System.Collections;
 
 public class balloonController : MonoBehaviour {
 
+	public GameObject go_particleEffect;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -11,6 +13,10 @@ public class balloonController : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D collider)
 	{
 		Debug.Log (collider.gameObject.tag);
+		if (collider.gameObject.tag == "wall") {
+			Instantiate(go_particleEffect, gameObject.transform.position, Quaternion.identity);
+				}
+
 
 	}
 	
