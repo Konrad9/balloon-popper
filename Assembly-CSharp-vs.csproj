@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\balloonController.cs" />
      <Compile Include="Assets\bulletController.cs" />
+     <Compile Include="Assets\destroyer.cs" />
      <Compile Include="Assets\movementController.cs" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Multiply Culled.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Background.shader" />
