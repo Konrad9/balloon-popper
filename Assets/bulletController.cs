@@ -5,8 +5,6 @@ public class bulletController : MonoBehaviour {
 
 	private Vector2 velocity;
 	private bool collided;
-	
-	
 
 	// Use this for initialization
 	void Start () {
@@ -16,18 +14,15 @@ public class bulletController : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D collider)
 	{
-		collided = true;		
-		
+		collided = true;
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		gameObject.rigidbody2D.velocity = velocity;	
-		if (collided) 
-		{			
-			this.gameObject.SetActive(false);
-			Destroy (this.gameObject);	
+		if (!collided) 
+		{
+			gameObject.rigidbody2D.velocity = velocity;	
 		}
 	}
 }
