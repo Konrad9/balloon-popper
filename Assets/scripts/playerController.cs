@@ -6,13 +6,13 @@ using System.Collections.Generic;
 public class playerController : MonoBehaviour {
 
 	public GameObject bullet;
-	private Vector2 firePosition;
-	Vector2 offset;
+	private Vector3 firePosition;
+	Vector3 offset;
 
 
 	// Use this for initialization
 	void Start () {
-		offset = new Vector2 (0f, 0.5f);
+		offset = new Vector3 (0f, 0.8f, 0.0f);
 		firePosition = gameObject.transform.position; 
 		firePosition += offset;
 	
@@ -22,12 +22,12 @@ public class playerController : MonoBehaviour {
 	void Update () {
 		if (Input.GetKey(KeyCode.RightArrow)) 
 		{
-			gameObject.transform.position = new Vector2(gameObject.transform.position.x + .1f, (gameObject.transform.position.y)); 
+			gameObject.transform.position = new Vector3(gameObject.transform.position.x + .1f, (gameObject.transform.position.y), -1.0f); 
 		}
 
 		if (Input.GetKey(KeyCode.LeftArrow)) 
 		{
-			gameObject.transform.position = new Vector2(gameObject.transform.position.x - .1f, (gameObject.transform.position.y)); 
+			gameObject.transform.position = new Vector3(gameObject.transform.position.x - .1f, (gameObject.transform.position.y), -1.0f); 
 		}
 
 		if (Input.GetKeyDown(KeyCode.Space))
