@@ -2,7 +2,11 @@ fileFormatVersion: 2
 guid: a326703ba39a1144dbb6537f29a5618f
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - bullet: {fileID: 100000, guid: abd3da8849c4a824382c151d11ef154b, type: 2}
+  - balloon: {fileID: 100000, guid: 65c101d9fedd1f645bc114c43aa0e2fc, type: 2}
+  - rightTexture: {fileID: 2800000, guid: df9eb98bc7276fd4dbc1dfbb966dce86, type: 3}
+  - leftTexture: {fileID: 2800000, guid: 4959d2387bf114e4b9c6825318bf0faa, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
