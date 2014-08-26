@@ -11,7 +11,7 @@ public class scrollingBackground : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log(positionMover);
+		//Debug.Log(positionMover);
 		positionMover = gameObject.transform.position;
 		positionMover.y -= 0.01f; 
 		gameObject.transform.position = positionMover; 
