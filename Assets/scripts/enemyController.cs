@@ -29,19 +29,30 @@ public class enemyController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//gameObject.transform.rigidbody2D.AddForce(new Vector2(1.0f, -1.0f)); 
-		Debug.Log(crazyIvan);
+		//Debug.Log(crazyIvan);
 		if ((crazyIvan -= Time.deltaTime) <= 0)
 		{
 			crazyIvan =  Random.Range(0, 10);
 			velocity.x *= -1; 
 		}
-		gameObject.transform.rigidbody2D.velocity = velocity;
+		gameObject.transform.rigidbody.velocity = velocity;
 	}
 
-	private void OnTriggerEnter2D(Collider2D collider)
+	private void OnTriggerEnter(Collider collider)
 	{
-		if (collider.tag == "wall")
-		velocity.x *= -1; 
+		if (collider.tag == "wall"){
+			velocity.x *= -1; 
+			}
+
+	}
+	private void OnCollisionEnter(Collision collider)
+	{
+		Debug.Log(collider.gameObject.tag);
+		if (collider.gameObject.tag == "bullet")
+		{
+			Debug.Log("true");
+			Destroy(gameObject);
+		}
 	}
 }
 

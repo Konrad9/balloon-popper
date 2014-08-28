@@ -22,12 +22,12 @@ public class playerController : MonoBehaviour {
 	void Update () {
 		if (Input.GetKey(KeyCode.RightArrow)) 
 		{
-			gameObject.transform.position = new Vector3(gameObject.transform.position.x + .1f, (gameObject.transform.position.y), -1.0f); 
+			gameObject.transform.position = new Vector3(gameObject.transform.position.x + .1f, (gameObject.transform.position.y), -2.0f); 
 		}
 
 		if (Input.GetKey(KeyCode.LeftArrow)) 
 		{
-			gameObject.transform.position = new Vector3(gameObject.transform.position.x - .1f, (gameObject.transform.position.y), -1.0f); 
+			gameObject.transform.position = new Vector3(gameObject.transform.position.x - .1f, (gameObject.transform.position.y), -2.0f); 
 		}
 
 		if (Input.GetKeyDown(KeyCode.Space))
