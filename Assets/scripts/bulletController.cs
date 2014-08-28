@@ -10,15 +10,14 @@ public class bulletController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		velocity = new Vector2(0, 10);
-		gameObject.rigidbody2D.velocity = velocity;	
+		gameObject.rigidbody.velocity = velocity;	
 		Destroy (gameObject, 10.0f);
 	}
 
-	void OnCollisionEnter2D(Collision2D collider)
+	void OnCollisionEnter(Collision collider)
 	{
 		Destroy (gameObject);
 		Instantiate(sploder, gameObject.transform.position, Quaternion.identity); 
-
 	}
 
 	

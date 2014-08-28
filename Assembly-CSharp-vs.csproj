@@ -167,11 +167,13 @@
      <Compile Include="Assets\scripts\balloonController.cs" />
      <Compile Include="Assets\scripts\bulletController.cs" />
      <Compile Include="Assets\scripts\destroyer.cs" />
+     <Compile Include="Assets\scripts\enemyController.cs" />
      <Compile Include="Assets\scripts\gameController.cs" />
      <Compile Include="Assets\scripts\playerController.cs" />
      <Compile Include="Assets\scripts\raycaster.cs" />
      <Compile Include="Assets\scripts\scrollCreator.cs" />
      <Compile Include="Assets\scripts\scrollingBackground.cs" />
+     <Compile Include="Assets\scripts\spaceGameController.cs" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Depth Cutout.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Multiply Culled.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Background.shader" />

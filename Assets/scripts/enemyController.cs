@@ -23,7 +23,7 @@ public class enemyController : MonoBehaviour {
 
 		hitWall = false;
 
-		velocity = new Vector2(2.0f, -.50f);
+		velocity = new Vector2(4.0f, -.85f);
 	}
 	
 	// Update is called once per frame
