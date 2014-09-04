@@ -14,16 +14,22 @@ public class enemyController : MonoBehaviour {
 
 	private float crazyIvan; 
 
+	private Vector3 laserOffsetPosition; 
+
+	public GameObject laserBeam; 
+
 	// Use this for initialization
 	void Start () {
-		reloadTimer = 0; 
-		reloadDuration = 1.75f;
+		reloadTimer = 5; 
+		reloadDuration = 3.75f;
 
 		crazyIvan = Random.Range(0, 15);
 
 		hitWall = false;
 
-		velocity = new Vector2(4.0f, -.85f);
+		velocity = new Vector2(4.0f, 0);
+		gameObject.transform.rigidbody.velocity = velocity;
+
 	}
 	
 	// Update is called once per frame
@@ -34,15 +40,37 @@ public class enemyController : MonoBehaviour {
 		{
 			crazyIvan =  Random.Range(0, 10);
 			velocity.x *= -1; 
+			gameObject.rigidbody.velocity = velocity; 
 		}
-		gameObject.transform.rigidbody.velocity = velocity;
+
+		if (gameObject.rigidbody.velocity.y < 0)
+		{
+			velocity.y += 4; 
+			gameObject.rigidbody.velocity = velocity; 
+			Debug.Log(velocity.y);
+		}
+
+		if ((reloadTimer -= Time.deltaTime) <= 0)
+		{
+			laserOffsetPosition = gameObject.transform.position;
+			laserOffsetPosition.y += .01f;
+			fireWeapon();
+			reloadTimer = reloadDuration;
+		}
+	}
+
+	private void fireWeapon()
+	{
+		Instantiate(laserBeam, laserOffsetPosition, Quaternion.identity );
 	}
 
 	private void OnTriggerEnter(Collider collider)
 	{
 		if (collider.tag == "wall"){
 			velocity.x *= -1; 
-			}
+			velocity.y -= 28; 
+			gameObject.rigidbody.velocity = velocity; 
+		}
 
 	}
 	private void OnCollisionEnter(Collision collider)

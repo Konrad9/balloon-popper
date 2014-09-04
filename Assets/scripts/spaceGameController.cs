@@ -7,11 +7,13 @@ public class spaceGameController : MonoBehaviour {
 	private Vector3 enemyStartPosition;
 	private float enemySpawnTimer; 
 	private float enemyWait; 
+	private float randomYSpawnPos; 
+	private float randomXSpawnPos; 
 	
 	// Use this for initialization
 	void Start () {
 		enemyStartPosition = new Vector3(0,7,-2);
-		enemyWait = 1.5f; 
+		enemyWait = 2.5f; 
 		enemySpawnTimer = 2.0f; 
 	}
 	
@@ -19,6 +21,8 @@ public class spaceGameController : MonoBehaviour {
 	void Update () {
 		if ((enemySpawnTimer -= Time.deltaTime) <= 0)
 		{
+			randomXSpawnPos = Random.Range(-3, 3);
+			randomYSpawnPos = Random.Range(6, 9);
 			spawnNewEnemy();
 			enemySpawnTimer = enemyWait;
 		}
