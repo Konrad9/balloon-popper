@@ -9,7 +9,7 @@ public class scrollCreator : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		newScrollerPosition = new Vector3(0f, 13f, 0f);
+		newScrollerPosition = new Vector3(0f, 0f, 0f);
 		newBackgroundSpawned = false; 
 	}
 	
@@ -29,6 +29,7 @@ public class scrollCreator : MonoBehaviour {
 	{
 		if (!newBackgroundSpawned)
 		{
+			newScrollerPosition = new Vector3(0f, gameObject.transform.position.y + 24.2378f, 0f);
 			Instantiate(scroller, newScrollerPosition, Quaternion.identity);
 			newBackgroundSpawned = true; 
 		}
