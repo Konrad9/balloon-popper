@@ -5,20 +5,21 @@ using System.Collections.Generic;
 
 public class spaceGameController : MonoBehaviour {
 
-	public GameObject enemy;
+	public GameObject p_basicEnemy;
 	private Vector3 enemyStartPosition;
-	private float enemySpawnTimer; 
-	private float enemyWait; 
+	private float basicEnemySpawnTimer; 
+	private float basicEnemySpawnWaitTime; 
 	private float randomYSpawnPos; 
 	private float randomXSpawnPos; 
 	private float score; 
+	private float basicEnemySpawnCount; 
 	private List<float> enemyTypes;
 	
 	// Use this for initialization
 	void Start () {
 		enemyStartPosition = new Vector3(0,7,-2);
-		enemyWait = 1.5f; 
-		enemySpawnTimer = 0.4f; 
+		basicEnemySpawnWaitTime = 1.5f; 
+		basicEnemySpawnTimer = 0.4f; 
 		score = 0; 
 		enemyTypes = new List<float>();
 		for (float i = 0; i < 5; i++)
@@ -31,12 +32,16 @@ public class spaceGameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if ((enemySpawnTimer -= Time.deltaTime) <= 0)
+		if (basicEnemySpawnCount <= 50)
 		{
-			randomXSpawnPos = UnityEngine.Random.Range(-3, 3);
-			randomYSpawnPos = UnityEngine.Random.Range(6, 9);
-			spawnNewEnemy();
-			enemySpawnTimer = enemyWait;
+			if ((basicEnemySpawnTimer -= Time.deltaTime) <= 0)
+			{
+				randomXSpawnPos = UnityEngine.Random.Range(-3, 3);
+				randomYSpawnPos = 18.0f;
+				spawnNewEnemy();
+				basicEnemySpawnTimer = basicEnemySpawnWaitTime;
+				basicEnemySpawnCount++; 
+			}
 		}
 
 
@@ -52,8 +57,8 @@ public class spaceGameController : MonoBehaviour {
 		///score adds 100 * enemy multiplier
 		score += enemyTypes[destroyedEnemy] * 100f; 
 
-		scoreController _scoreController = GetComponent<GUIText>(scoreController);
-		_scoreController.displayScore(score); 
+		//scoreController _scoreController = GetComponent<GUIText>(scoreController);
+		//_scoreController.displayScore(score); 
 	}
 	
 	private float newRandomFloat()
@@ -63,7 +68,8 @@ public class spaceGameController : MonoBehaviour {
 	
 	public void spawnNewEnemy()
 	{		
-		Instantiate (enemy, enemyStartPosition, Quaternion.identity);
+		enemyStartPosition = new Vector3(randomXSpawnPos, randomYSpawnPos, -2);
+		Instantiate (p_basicEnemy, enemyStartPosition, Quaternion.identity);
 	}
 	
 }

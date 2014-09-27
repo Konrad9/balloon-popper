@@ -7,6 +7,9 @@ public class enemyController : MonoBehaviour {
 	private float reloadTimer;
 	private float reloadDuration;
 
+	private bool moveDown;
+	private float movedDown; 
+
 	private float playerLocation; 
 	private bool hitWall; 
 
@@ -23,7 +26,8 @@ public class enemyController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		_spaceGameController = GetComponent<Camera>(spaceGameController);
+		movedDown = 0;
+		moveDown = false;
 		reloadTimer = 5; 
 		reloadDuration = 3.75f;
 		xVelocity = 4.0f;
@@ -62,6 +66,16 @@ public class enemyController : MonoBehaviour {
 			fireWeapon();
 			reloadTimer = reloadDuration;
 		}
+
+		if (moveDown)
+		{
+			if (movedDown++ >= 10)
+			{
+				moveDown = false; 
+				movedDown = 0; 
+			}
+			transform.Translate (new Vector3(0, -0.1f, 0));
+		}
 	}
 
 	private void fireWeapon()
@@ -74,7 +88,8 @@ public class enemyController : MonoBehaviour {
 		if (collider.tag == "wall"){
 			velocity.x *= -1; 
 			if (gameObject.transform.position.y >= -2.5)
-			velocity.y -= 28; 
+				moveDown = true;
+				//transform.Translate(new Vector3(0, -1.0f, 0)); 
 			gameObject.rigidbody.velocity = velocity; 
 		}
 		if (collider.tag =="enemy")
@@ -86,10 +101,10 @@ public class enemyController : MonoBehaviour {
 	private void OnCollisionEnter(Collision collider)
 	{
 		//Debug.Log(collider.gameObject.tag);
-		if (collider.gameObject.tag == "bullet")
+		if (collider.gameObject.tag != "wall")
 		{
 			//Debug.Log("true");
-			_spaceGameController.addToScore(0);
+			//_spaceGameController.addToScore(0);
 			Destroy(gameObject);
 		}
 	}
