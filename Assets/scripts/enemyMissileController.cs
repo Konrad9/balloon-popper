@@ -12,7 +12,15 @@ public class enemyMissileController : MonoBehaviour {
 		velocity = new Vector3(0, 4, 0); 
 		player = GameObject.Find ("player");
 	}
-	
+
+	void OnCollisionEnter(Collision collision)
+	{
+		if (collision.gameObject.tag == "Player")
+		{
+			Destroy(gameObject); 
+		}
+	}
+
 	// Update is called once per frame
 	void Update () {
 		///compute basic trajectory to player, go there, blow up if hit by bullet
