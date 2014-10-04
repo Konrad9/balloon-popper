@@ -22,6 +22,8 @@ public class enemyController : MonoBehaviour {
 
 	public GameObject laserBeam; 
 
+	public GameObject gameController; 
+
 	private spaceGameController _spaceGameController; 
 
 	// Use this for initialization
@@ -39,7 +41,9 @@ public class enemyController : MonoBehaviour {
 		velocity = new Vector2(xVelocity, 0);
 		gameObject.transform.rigidbody.velocity = velocity;
 
-	}
+
+		gameController = GameObject.Find ("Main Camera");
+	} 
 	
 	// Update is called once per frame
 	void Update () {
@@ -103,8 +107,14 @@ public class enemyController : MonoBehaviour {
 		//Debug.Log(collider.gameObject.tag);
 		if (collider.gameObject.tag != "wall")
 		{
-			//Debug.Log("true");
-			//_spaceGameController.addToScore(0);
+			Destroy(gameObject);
+		}
+
+		if (collider.gameObject.tag == "bullet")
+		{
+			GameObject camera = GameObject.FindWithTag("MainCamera");
+			camera.GetComponent<spaceGameController>().addToScore(1);
+			
 			Destroy(gameObject);
 		}
 	}

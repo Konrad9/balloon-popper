@@ -15,8 +15,7 @@ public class spaceGameController : MonoBehaviour {
 	private float basicEnemySpawnCount; 
 	private List<float> enemyTypes;
 	public GUIText c; 
-	public UILabel label; 
-	
+
 	// Use this for initialization
 	void Start () {
 		enemyStartPosition = new Vector3(0,7,-2);
@@ -32,7 +31,7 @@ public class spaceGameController : MonoBehaviour {
 		}
 
 		//c = GameObject.Find("Main Camera").GetComponent<GUIText>();	
-		c.text = "TEXT HAS BEEN UPDATED";
+		c.text = score.ToString(); 
 
 		//GUIText = "Text";
 
@@ -40,7 +39,7 @@ public class spaceGameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log(c.text);
+		//Debug.Log(c.text);
 		if (basicEnemySpawnCount <= 50)
 		{
 			if ((basicEnemySpawnTimer -= Time.deltaTime) <= 0)
@@ -63,8 +62,11 @@ public class spaceGameController : MonoBehaviour {
 
 	public void addToScore(int destroyedEnemy)
 	{
+
+		Debug.Log("Called");
 		///score adds 100 * enemy multiplier
 		score += enemyTypes[destroyedEnemy] * 100f; 
+		c.text = score.ToString(); 
 
 		//scoreController _scoreController = GetComponent<GUIText>(scoreController);
 		//_scoreController.displayScore(score); 
