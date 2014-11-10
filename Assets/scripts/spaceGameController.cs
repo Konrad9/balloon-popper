@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.UI; 
 using System;
 using System.Collections;
 using System.Collections.Generic;
 
 public class spaceGameController : MonoBehaviour {
-
+	public Text uiScoreText; 
 	public GameObject p_basicEnemy;
 	private Vector3 enemyStartPosition;
 	private float basicEnemySpawnTimer; 
@@ -51,7 +52,8 @@ public class spaceGameController : MonoBehaviour {
 				basicEnemySpawnCount++; 
 			}
 		}
-
+		
+		
 
 
 	}
@@ -66,8 +68,8 @@ public class spaceGameController : MonoBehaviour {
 		Debug.Log("Called");
 		///score adds 100 * enemy multiplier
 		score += enemyTypes[destroyedEnemy] * 100f; 
-		c.text = score.ToString(); 
-
+		uiScoreText.text = score.ToString(); 
+		
 		//scoreController _scoreController = GetComponent<GUIText>(scoreController);
 		//_scoreController.displayScore(score); 
 	}
