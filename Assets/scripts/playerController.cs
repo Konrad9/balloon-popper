@@ -9,7 +9,6 @@ public class playerController : MonoBehaviour {
 	private Vector3 firePosition;
 	Vector3 offset;
 
-
 	// Use this for initialization
 	void Start () {
 		offset = new Vector3 (0f, 0.8f, 0.0f);

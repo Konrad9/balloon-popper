@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 
 Project("{4E732FD6-777D-717D-DF5A-0F4E7BF7ECBE}") = "balloon-popper", "Assembly-CSharp-vs.csproj", "{BFC8C957-A569-51A3-2ABB-118C438F773A}"
 EndProject
-Project("{4E732FD6-777D-717D-DF5A-0F4E7BF7ECBE}") = "balloon-popper", "Assembly-CSharp-Editor-vs.csproj", "{F600C059-D43F-D4F1-074D-CA8E1E6ACEFD}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,15 +13,11 @@ Global
 		{BFC8C957-A569-51A3-2ABB-118C438F773A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BFC8C957-A569-51A3-2ABB-118C438F773A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BFC8C957-A569-51A3-2ABB-118C438F773A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F600C059-D43F-D4F1-074D-CA8E1E6ACEFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F600C059-D43F-D4F1-074D-CA8E1E6ACEFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F600C059-D43F-D4F1-074D-CA8E1E6ACEFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F600C059-D43F-D4F1-074D-CA8E1E6ACEFD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																																								GlobalSection(MonoDevelopProperties) = preSolution
+																																																																																				GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

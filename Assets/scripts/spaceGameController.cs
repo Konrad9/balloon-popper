@@ -32,7 +32,7 @@ public class spaceGameController : MonoBehaviour {
 		}
 
 		//c = GameObject.Find("Main Camera").GetComponent<GUIText>();	
-		c.text = score.ToString(); 
+		uiScoreText.text = score.ToString(); 
 
 		//GUIText = "Text";
 
